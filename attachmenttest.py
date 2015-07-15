@@ -56,3 +56,8 @@ server.quit()
 
 # Move the file to an archive folder
 # Change the file name to include a timestamp
+
+newpath = "Archive/" + oldest  # Add a timestamp here too
+
+os.rename(oldest, newpath)  # Move the file to the new folder
+
