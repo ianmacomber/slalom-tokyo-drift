@@ -1,0 +1,7 @@
+# Ignoring some filetypes
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.png
+*.PNG

@@ -1,5 +1,6 @@
 import os
 import smtplib
+from time import strftime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
@@ -56,8 +57,11 @@ server.quit()
 
 # Move the file to an archive folder
 # Change the file name to include a timestamp
+# Split the file name out based on the jpg
+first, last = oldest.split(".")
 
-newpath = "Archive/" + oldest  # Add a timestamp here too
+newpath = "Archive/" + first + "_" + strftime("%Y_%m_%d") + "." + last
 
 os.rename(oldest, newpath)  # Move the file to the new folder
 
+# I also need to have a .gitignore to make sure I don't git commit the files themselves, only the structure.
