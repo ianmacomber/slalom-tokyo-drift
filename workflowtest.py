@@ -1,6 +1,7 @@
 import os
 import smtplib
 import datetime as datetime
+import config
 from time import strftime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -30,7 +31,7 @@ def send_email(filename):
         message.attach(MIMEImage(image_file.read()))
     
     fromaddr = 'slalomtokyodrift@gmail.com'
-    toaddrs = 'ian.d.macomber@gmail.com'
+    toaddrs = config.ian
     
     message['From'] = fromaddr
     message['To'] = toaddrs
@@ -38,13 +39,13 @@ def send_email(filename):
     msg_full = message.as_string()
     
     username = 'slalomtokyodrift@gmail.com'
-    password = 'welpdodge' # Hide this at somepoint?
+    password = config.password
     
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
     
     server.login(username,password)
-    server.sendmail('slalomtokyodrift@gmail.com', 'ian.d.macomber@gmail.com', msg_full)
+    server.sendmail('slalomtokyodrift@gmail.com', config.ian, msg_full)
     server.quit()
 
 # This function sends the oldest file in a folder, then moves it to the archive.
@@ -74,7 +75,7 @@ def send_oldest_photo(path):
 
 if __name__ == "__main__":
     # This is where my files are located
-    path = "/Users/ianmacomber/Python Work/slalom-tokyo-drift"
+    path = os.getcwd()  # Set path to the default slalomtokyodriftfolder
     path = path + "/Photos"
 
     # Check which day of the week it is

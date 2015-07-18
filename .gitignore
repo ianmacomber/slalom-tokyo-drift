@@ -5,3 +5,6 @@
 *.JPEG
 *.png
 *.PNG
+*.DS_Store
+config.py
+config.pyc
