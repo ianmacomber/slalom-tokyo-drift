@@ -6,5 +6,6 @@
 *.png
 *.PNG
 *.DS_Store
+*.webloc
 config.py
 config.pyc
